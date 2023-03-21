@@ -13,10 +13,7 @@ steps:
 - script: echo iniciando pipeline andressa
   displayName: 'pipeline lab andressa'
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
+- script: |
       #       
       echo "A data de hoje : $(date "+%Y%m%d")"
 
