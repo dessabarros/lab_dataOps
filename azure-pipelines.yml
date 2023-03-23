@@ -9,15 +9,22 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo iniciando pipeline andressa
-  displayName: 'pipeline lab andressa'
+stages:
+- stage: SAS_INITIAL
+  jobs:
+  - job: START_SAS_PIPELINE
+    steps:
+    - script: echo SAS SOLUTIONS
+      displayName: ' SAS Step POC DevOps'
 
-- script: |
-      #       
-      echo "A data de hoje : $(date "+%Y%m%d")"
-
-- script: |
-    echo laboratorio dataset portal transparencia
-    echo link https://portaldatransparencia.gov.br/download-de-dados/ceis
-  displayName: 'laboratorio 01 testando scripts shell'
+- stage: DEPLOY_SAS
+  jobs:
+    - job: PROCESSING_CAS
+      steps: 
+        - script: |
+            echo "Itens basic GitOps para tasks build, test, e deploy."
+            echo -e "Server $(hostname -f)"
+            df -h
+            echo -e
+            echo Acesse http://www.sas.com/br
+          displayName: 'Server Testing'
