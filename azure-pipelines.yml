@@ -1,7 +1,6 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# Criar rotina automatizada para baixar dataset diaria CEIS
+# LabDevOps Andressa Barros 
+# andressa_barros18@hotmail.com
 
 trigger:
 - main
@@ -10,21 +9,26 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-- stage: SAS_INITIAL
+- stage: START_STAGE1
   jobs:
-  - job: START_SAS_PIPELINE
+  - job: START_PIPELINE
     steps:
-    - script: echo SAS SOLUTIONS
-      displayName: ' SAS Step POC DevOps'
+      - script: echo iniciando pipeline andressa
+    displayName: 'pipeline lab andressa'
 
-- stage: DEPLOY_SAS
+- stage: START_STAGE2      
   jobs:
-    - job: PROCESSING_CAS
-      steps: 
-        - script: |
-            echo "Itens basic GitOps para tasks build, test, e deploy."
-            echo -e "Server $(hostname -f)"
-            df -h
-            echo -e
-            echo Acesse http://www.sas.com/br
-          displayName: 'Server Testing'
+  - job: FORMAT_DATE
+    steps:
+     - script: |
+          #       
+          echo "A data de hoje : $(date "+%Y%m%d")"
+
+- stage: START_STAGE3
+  jobs:
+  - job: FINALIZANDO_ITEM
+    steps:
+      - script: |
+          echo laboratorio dataset portal transparencia
+          echo link https://portaldatransparencia.gov.br/download-de-dados/ceis
+    displayName: 'laboratorio 01 testando scripts shell'
