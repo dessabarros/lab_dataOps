@@ -8,7 +8,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-- stage: START_STAGE
+stages:
+
+- stage: START_STAGE3
   jobs:
   - job: FINALIZANDO_ITEM
     steps:
