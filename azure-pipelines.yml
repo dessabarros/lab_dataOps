@@ -9,6 +9,20 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
+- stage: START_STAGE1
+  jobs:
+  - job: START_PIPELINE
+    steps:
+      - script: echo iniciando pipeline andressa
+    displayName: 'pipeline lab andressa'
+
+- stage: START_STAGE2      
+  jobs:
+  - job: FORMAT_DATE
+    steps:
+     - script: |
+          #       
+          echo "A data de hoje : $(date "+%Y%m%d")"
 
 - stage: START_STAGE3
   jobs:
