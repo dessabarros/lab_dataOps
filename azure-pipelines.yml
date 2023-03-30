@@ -23,6 +23,7 @@ stages:
      - script: |
           #       
           echo "A data de hoje : $(date "+%Y%m%d")"
+          ls -lhrt
 
 - stage: START_STAGE3
   jobs:
